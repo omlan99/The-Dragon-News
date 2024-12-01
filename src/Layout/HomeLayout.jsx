@@ -1,8 +1,12 @@
+import Header from "../Component/Header";
+import LatestNews from "../Component/LatestNews";
+
 const HomeLayout = () => {
     return (
         <div>
             <header>
-                This is an header
+                <Header></Header>
+                <LatestNews></LatestNews>
             </header>
             <nav>
                 This is an nav bar
