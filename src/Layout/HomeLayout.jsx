@@ -1,19 +1,24 @@
 import Header from "../Component/Header";
 import LatestNews from "../Component/LatestNews";
+import LeftNavbar from "../Component/Layout-component/LeftNavbar";
 import Navbar from "../Component/Navbar";
 
 const HomeLayout = () => {
     return (
-        <div className="font-popins">
+        <div className="font-popins container mx-auto">
             <header>
                 <Header></Header>
-                <LatestNews></LatestNews>
+                <section className=" w-11/12 mx-auto ">
+                    <LatestNews></LatestNews>
+                </section>
             </header>
-            <nav>
+            <nav className="w-11/12 mx-auto py-2">
                 <Navbar></Navbar>
             </nav>
-            <main>
-                This is a main section
+            <main className="w-11/12 mx-auto pt-5 grid md:grid-cols-12 gap-3">
+                <aside className="col-span-3"><LeftNavbar></LeftNavbar></aside>
+                <section className="col-span-6">Main Section</section>
+                <aside className="col-span-3">Right Navbar</aside>
             </main>
         </div>
     );
