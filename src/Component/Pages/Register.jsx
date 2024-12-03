@@ -1,17 +1,27 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
+    const {createNewUser} = useContext(AuthContext)
     const handleSubmit = e => {
         e.preventDefault()
         // new way to get form data with js built in fromdata
         const form = new FormData(e.target)
         const name = form.get('name')
-        const name = form.get('name')
         const email =form.get('email')
         const photo = form.get('photo')
         const password  = form.get('password')
         console.log(name, email, photo, password)
+        createNewUser(email,password)
+        .then(result => {
+          const user = result.user
+          console.log("Successfuly register",user)
+        })
+        .catch(error => console.log("error found",error.message))
+        
     }
+  
     return (
         <div className="min-h-screen flex justify-center items-center">
       <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10">
@@ -59,7 +69,7 @@ const Register = () => {
             </label>
             <input
               type="password"
-              name="passowrd"
+              name="password"
               placeholder="password"
               className="input input-bordered"
               required
