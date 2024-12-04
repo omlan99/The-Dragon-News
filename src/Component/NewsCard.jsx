@@ -1,5 +1,6 @@
 import { AiFillStar } from "react-icons/ai";
 import { BsEye } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
   const {
@@ -36,7 +37,7 @@ const NewsCard = ({ news }) => {
           </div>
         </div>
         <p className="text-sm text-gray-600 mt-4">
-          {details.slice(0, 100)}... <span className="text-primary">Read More</span>
+          {details.slice(0, 100)}... <Link to={`/news/${news._id}`} className="text-primary">Read More</Link>
         </p>
         <div className="flex justify-between items-center mt-4">
           <div className="flex items-center gap-1 text-yellow-500">

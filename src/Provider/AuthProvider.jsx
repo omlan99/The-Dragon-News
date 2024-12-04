@@ -12,18 +12,22 @@ export const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loader, setLoader] =  useState(true)
   console.log(user);
   // new user function
   const createNewUser = (email, password) => {
+    setLoader(true)
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // login function
   const singInUser = (email, password) =>{
+    setLoader(true)
     return signInWithEmailAndPassword(auth, email, password)
   }
   // sign out function
   const logout = () => {
+    setLoader(true)
     return signOut(auth);
   };
   const authInfo = {
@@ -32,11 +36,14 @@ const AuthProvider = ({ children }) => {
     createNewUser,
     logout,
     singInUser,
+    loader
   };
   console.log(user)
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
+      setLoader(false)
       setUser(loggedUser);
+    
     });
     return () => {  
       unsubscribe();
