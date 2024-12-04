@@ -13,7 +13,7 @@ export const AuthContext = createContext({});
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] =  useState(true)
-  console.log(user);
+  // console.log(user);
   // new user function
   const createNewUser = (email, password) => {
     setLoader(true)
@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
     singInUser,
     loader
   };
-  console.log(user)
+  // console.log(user)
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       setLoader(false)

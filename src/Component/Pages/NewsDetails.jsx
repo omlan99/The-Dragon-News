@@ -5,7 +5,7 @@ import RightNavbar from "../Layout-component/RightNavbar";
 const NewsDetails = () => {
   const data = useLoaderData();
   const news = data.data[0];
-  console.log(news);
+  // console.log(news);
   return (
     <div>
       <Header></Header>
