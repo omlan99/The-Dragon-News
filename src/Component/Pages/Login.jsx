@@ -18,7 +18,7 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         navigate(location?.state ? location.state : "/");
-        console.log(user);
+        // console.log(user);
       })
       .catch((error) => {
         setErr({ ...err, login: "Incorrect password" });

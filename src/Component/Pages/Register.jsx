@@ -17,7 +17,7 @@ const Register = () => {
         .then(result => {
           const user = result.user
           setUser(user)
-          console.log("Successfuly register",user)
+          // console.log("Successfuly register")
         })
         .catch(error => console.log("error found",error.message))
         
